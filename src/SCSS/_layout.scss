@@ -1,0 +1,35 @@
+.bg-img {
+  background-image: url(../images/bg-desktop-light.jpg);
+  background-size: cover;
+  background-position: center center;
+  height: 300px;
+  width: 100%;
+  font-family: "Josefin Sans", "Noto Sans TC";
+  .container {
+    width: 100%;
+    padding-top: 100px;
+    .logout-btn {
+      &:hover {
+        color: #fff;
+      }
+    }
+    h1 {
+      letter-spacing: 1rem;
+    }
+    .footer {
+      color: hsl(236, 9%, 61%);
+      font-size: 12px;
+      a {
+        color: hsl(220, 98%, 61%);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .bg-img {
+    .container {
+      width: 40%;
+    }
+  }
+}
