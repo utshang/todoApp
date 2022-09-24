@@ -16,6 +16,15 @@
     h1 {
       letter-spacing: 1rem;
     }
+    .login-btn {
+      background-color: #6559cc;
+      color: #fff;
+      &:hover {
+        background-color: #fff;
+        border: #6559cc 2px solid;
+        color: #6559cc;
+      }
+    }
   }
 }
 
@@ -25,4 +34,8 @@
       width: 40%;
     }
   }
+}
+
+.no-outline:focus {
+  outline: none;
 }

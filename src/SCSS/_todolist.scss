@@ -20,13 +20,9 @@ form {
 .list-footer a span {
   color: hsl(235, 19%, 35%);
   &:hover {
-    color: hsl(220, 98%, 61%);
+    color: #6559cc;
     font-weight: bold;
   }
-}
-.list-footer span {
-  font-size: 12px;
-  color: hsl(236, 9%, 61%);
 }
 
 @media screen and (min-width: 1025px) {

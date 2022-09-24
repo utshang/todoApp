@@ -5,6 +5,20 @@ import AddBtn from "./AddBtn";
 function TodoList() {
   return (
     <>
+      <div className="d-flex justify-content-between align-items-end text-white ">
+        <h1 className="fw-bold fs-1">TODO</h1>
+        <div>
+          <Link
+            to="/login"
+            className="logout-btn text-white d-flex justify-content-end mb-2"
+          >
+            Log out
+          </Link>
+          <p>
+            <span>Ashley</span>'s Todo List
+          </p>
+        </div>
+      </div>
       <AddBtn />
       <div className="bg-white rounded shadow">
         <ul>
@@ -20,7 +34,7 @@ function TodoList() {
           </li>
         </ul>
         <div className="p-4 d-flex justify-content-between align-items-end list-footer">
-          <span>
+          <span className="fs-7 text-muted">
             <span>5</span> items left
           </span>
           <div>
