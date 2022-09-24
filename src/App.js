@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import "../src/SCSS/all.scss";
+import "../src/stylesheets/all.scss";
 import Layout from "./components/Layout";
 import TodoList from "./components/TodoList";
 import NotFound from "./components/NotFound";

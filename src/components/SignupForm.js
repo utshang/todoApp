@@ -1,4 +1,4 @@
-import "../SCSS/_loginform.scss";
+import "../stylesheets/_loginsignup.scss";
 
 function Signup() {
   return (

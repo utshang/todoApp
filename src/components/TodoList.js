@@ -1,4 +1,4 @@
-import "../SCSS/_todolist.scss";
+import "../stylesheets/_todolist.scss";
 import { Link } from "react-router-dom";
 import AddBtn from "./AddBtn";
 

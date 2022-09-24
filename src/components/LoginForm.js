@@ -1,4 +1,4 @@
-import "../SCSS/_loginform.scss";
+import "../stylesheets/_loginsignup.scss";
 import { Link } from "react-router-dom";
 
 function Login() {

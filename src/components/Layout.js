@@ -1,4 +1,4 @@
-import "../SCSS/_layout.scss";
+import "../stylesheets/_layout.scss";
 import { Outlet } from "react-router-dom";
 
 function Layout() {
