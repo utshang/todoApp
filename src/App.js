@@ -15,7 +15,6 @@ function App() {
           <Route path="todolist" element={<TodoList />} />
           <Route path="signup" element={<SignupForm />} />
         </Route>
-
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
