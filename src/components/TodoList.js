@@ -9,7 +9,7 @@ function TodoList() {
         <h1 className="fw-bold fs-1">TODO</h1>
         <div>
           <Link
-            to="/login"
+            to="/"
             className="logout-btn text-white d-flex justify-content-end mb-2"
           >
             Log out
