@@ -39,10 +39,10 @@ function TodoList() {
           </span>
           <div>
             <Link to="/">
-              <span> All</span>
+              <span>All</span>
             </Link>
             <Link to="/" className="mx-1 mx-md-3">
-              <span> Active</span>
+              <span>Active</span>
             </Link>
             <Link to="/">
               <span>Completed</span>

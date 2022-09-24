@@ -11,8 +11,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<TodoList />} />
-          <Route path="login" element={<LoginForm />} />
+          <Route path="/" element={<LoginForm />} />
+          <Route path="todolist" element={<TodoList />} />
           <Route path="signup" element={<SignupForm />} />
         </Route>
 
