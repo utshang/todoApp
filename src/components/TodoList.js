@@ -1,21 +1,41 @@
+import { useAuth } from "./Context";
 import "../stylesheets/_todolist.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AddBtn from "./AddBtn";
+import { logOut } from "../services/callAPI";
 
 function TodoList() {
+  let navigate = useNavigate();
+  const { user, setUser, setToken } = useAuth();
+
+  const logout = async (e) => {
+    e.preventDefault();
+    await logOut()
+      .then((response) => {
+        console.log(response);
+        setToken("");
+        setUser("");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <>
-      <div className="d-flex justify-content-between align-items-end text-white ">
+      <div className="d-flex justify-content-between align-items-end text-white">
         <h1 className="fw-bold fs-1">TODO</h1>
         <div>
           <Link
             to="/"
             className="logout-btn text-white d-flex justify-content-end mb-2"
+            onClick={logout}
           >
             Log out
           </Link>
           <p>
-            <span>Ashley</span>'s Todo List
+            <span>{user}</span>'s Todo List
           </p>
         </div>
       </div>
@@ -29,7 +49,7 @@ function TodoList() {
               <span>煮飯</span>
             </div>
             <Link to="/">
-              <i class="bi bi-x-lg"></i>
+              <i className="bi bi-x-lg"></i>
             </Link>
           </li>
         </ul>

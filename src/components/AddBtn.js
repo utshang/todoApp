@@ -7,7 +7,7 @@ function AddBtn() {
         className="border-0 p-4 w-100 no-outline rounded"
       />
       <button className="btn">
-        <i class="bi bi-plus fs-3 text-blue"></i>
+        <i className="bi bi-plus fs-3 text-blue"></i>
       </button>
     </form>
   );
