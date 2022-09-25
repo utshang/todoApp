@@ -28,6 +28,10 @@ export const signUp = (userData) => {
 
 export const logOut = () => {
   return axios({
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
     method: "delete",
     url: lognout_path,
   });

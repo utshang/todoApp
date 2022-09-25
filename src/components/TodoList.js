@@ -1,24 +1,45 @@
 import { useAuth } from "./Context";
 import "../stylesheets/_todolist.scss";
 import { Link, useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import AddBtn from "./AddBtn";
-import { logOut } from "../services/callAPI";
+// import { logOut } from "../services/callAPI";
 
 function TodoList() {
   let navigate = useNavigate();
-  const { user, setUser, setToken } = useAuth();
+  const { user, token } = useAuth();
+  // const { user, setToken,setUser } = useAuth();
 
-  const logout = async (e) => {
-    e.preventDefault();
-    await logOut()
-      .then((response) => {
-        console.log(response);
-        setToken("");
-        setUser("");
-        navigate("/");
+  // const logout = async (e) => {
+  //   e.preventDefault();
+  //   await logOut()
+  //     .then((response) => {
+  //       console.log(response);
+  //       setToken("");
+  //       setUser("");
+  //       navigate("/");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  const logout = () => {
+    const _url = "https://todoo.5xcamp.us/users/sign_out";
+    fetch(_url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: token,
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        navigate("/signup");
       })
-      .catch((error) => {
-        console.log(error);
+
+      .catch((err) => {
+        console.log(err);
       });
   };
 
@@ -27,13 +48,12 @@ function TodoList() {
       <div className="d-flex justify-content-between align-items-end text-white">
         <h1 className="fw-bold fs-1">TODO</h1>
         <div>
-          <Link
-            to="/"
-            className="logout-btn text-white d-flex justify-content-end mb-2"
-            onClick={logout}
-          >
+          <Link to="/" className="d-flex justify-content-end mb-2">
             Log out
           </Link>
+          <a href="#" onClick={logout}>
+            登出
+          </a>
           <p>
             <span>{user}</span>'s Todo List
           </p>

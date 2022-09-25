@@ -18,11 +18,14 @@ function Login() {
     let data = { user };
     await signIn(data)
       .then((response) => {
+        console.log(response);
         setToken(response.headers.authorization);
         setUser(response.data.nickname);
         navigate("/todolist");
       })
-      .catch(() => {});
+      .catch((error) => {
+        console.log(error.response);
+      });
   };
 
   return (
