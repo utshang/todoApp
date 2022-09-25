@@ -22,7 +22,7 @@ function Login() {
         setUser(response.data.nickname);
         navigate("/todolist");
       })
-      .catch((error) => {});
+      .catch(() => {});
   };
 
   return (
