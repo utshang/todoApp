@@ -26,11 +26,12 @@ export const signUp = (userData) => {
   });
 };
 
-export const logOut = () => {
+export const logOut = (token) => {
   return axios({
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      authorization: token,
     },
     method: "delete",
     url: lognout_path,

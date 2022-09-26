@@ -3,45 +3,45 @@ import "../stylesheets/_todolist.scss";
 import { Link, useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import AddBtn from "./AddBtn";
-// import { logOut } from "../services/callAPI";
+import { logOut } from "../services/callAPI";
 
 function TodoList() {
   let navigate = useNavigate();
-  const { user, token } = useAuth();
-  // const { user, setToken,setUser } = useAuth();
+  // const { user, token } = useAuth();
+  const { user, setUser, token, setToken } = useAuth();
 
-  // const logout = async (e) => {
-  //   e.preventDefault();
-  //   await logOut()
-  //     .then((response) => {
-  //       console.log(response);
-  //       setToken("");
-  //       setUser("");
-  //       navigate("/");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
-  const logout = () => {
-    const _url = "https://todoo.5xcamp.us/users/sign_out";
-    fetch(_url, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: token,
-      },
-    })
-      .then((res) => {
-        console.log(res);
-        navigate("/signup");
+  const logout = async (e) => {
+    e.preventDefault();
+    await logOut(token)
+      .then((response) => {
+        console.log(response);
+        setToken("");
+        setUser("");
+        navigate("/");
       })
-
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       });
   };
+  // fetch 寫法
+  // const logout = () => {
+  //   const _url = "https://todoo.5xcamp.us/users/sign_out";
+  //   fetch(_url, {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       authorization: token,
+  //     },
+  //   })
+  //     .then((res) => {
+  //       console.log(res);
+  //       navigate("/signup");
+  //     })
+
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   return (
     <>
