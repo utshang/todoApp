@@ -51,7 +51,7 @@ function TodoList() {
           <Link to="/" className="d-flex justify-content-end mb-2">
             Log out
           </Link>
-          <a href="#" onClick={logout}>
+          <a href="/" onClick={logout}>
             登出
           </a>
           <p>
