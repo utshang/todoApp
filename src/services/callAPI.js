@@ -3,9 +3,12 @@ const api_url = "https://todoo.5xcamp.us";
 const login_path = `${api_url}/users/sign_in`;
 const lognout_path = `${api_url}/users/sign_out`;
 const signup_path = `${api_url}/users`;
-// const todo_path = `${api_url}/todos`;
-// const del_path = `${api_url}/todos`;
+const addtodo_path = `${api_url}/todos`;
+const gettodo_path = `${api_url}/todos`;
+const deletetodo_path = `${api_url}/todos`;
+const toggletodo_path = `${api_url}/todos`;
 
+//登入
 export const signIn = (data) => {
   return axios({
     headers: {
@@ -18,6 +21,7 @@ export const signIn = (data) => {
   });
 };
 
+//註冊
 export const signUp = (userData) => {
   return axios({
     method: "post",
@@ -26,6 +30,7 @@ export const signUp = (userData) => {
   });
 };
 
+//登出
 export const logOut = (token) => {
   return axios({
     headers: {
@@ -35,5 +40,37 @@ export const logOut = (token) => {
     },
     method: "delete",
     url: lognout_path,
+  });
+};
+
+//新增todo
+export const addTodo = () => {
+  return axios({
+    method: "post",
+    url: addtodo_path,
+  });
+};
+
+//取得todo
+export const getTodo = () => {
+  return axios({
+    method: "get",
+    url: gettodo_path,
+  });
+};
+
+//刪除todo
+export const deleteTodo = (id) => {
+  return axios({
+    method: "delete",
+    url: `${deletetodo_path}/${id}`,
+  });
+};
+
+//toggle todo
+export const toggleTodo = (id) => {
+  return axios({
+    method: "patch",
+    url: `${toggletodo_path}/${id}/toggle`,
   });
 };
