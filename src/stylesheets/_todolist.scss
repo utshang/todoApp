@@ -4,6 +4,12 @@
   border-bottom: 2px solid #6559cc;
 }
 
+.list-tab li a {
+  display: block;
+  text-align: center;
+  padding: 16px 0;
+}
+
 .no-outline:focus {
   outline: none;
 }

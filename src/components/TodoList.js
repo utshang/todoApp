@@ -1,7 +1,7 @@
+import { useState } from "react";
 import { useAuth } from "./Context";
 import "../stylesheets/_todolist.scss";
 import { Link, useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import AddBtn from "./AddBtn";
 import { logOut } from "../services/callAPI";
 
@@ -9,6 +9,22 @@ function TodoList() {
   let navigate = useNavigate();
   // const { user, token } = useAuth();
   const { user, setUser, token, setToken } = useAuth();
+
+  const [todoState, setTodoState] = useState("all");
+  const [stateList] = useState([
+    {
+      todoState: "all",
+      content: "all",
+    },
+    {
+      todoState: "active",
+      content: "Active",
+    },
+    {
+      todoState: "completed",
+      content: "Completed",
+    },
+  ]);
 
   const logout = async (e) => {
     e.preventDefault();
@@ -64,21 +80,18 @@ function TodoList() {
       <div className="bg-white rounded shadow ">
         <div>
           <ul className="d-flex justify-content-between pt-2 mb-2 list-tab">
-            <li className="w-100 ">
-              <Link to="/" className="d-block text-center py-3 active">
-                All
-              </Link>
-            </li>
-            <li className="w-100">
-              <Link to="/" className="d-block text-center py-3">
-                <span>Active</span>
-              </Link>
-            </li>
-            <li className="w-100">
-              <Link to="/" className="d-block text-center py-3">
-                <span>Completed</span>
-              </Link>
-            </li>
+            {stateList.map((item, i) => {
+              return (
+                <li key={i} className="w-100 ">
+                  <a
+                    href="#"
+                    className={todoState === item.todoState ? "active" : ""}
+                  >
+                    {item.content}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
