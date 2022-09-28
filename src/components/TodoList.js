@@ -39,6 +39,12 @@ function TodoList() {
         console.log(error);
       });
   };
+
+  const changeState = (e, item) => {
+    e.preventDefault();
+    setTodoState(item.todoState);
+    console.log(item);
+  };
   // fetch 寫法
   // const logout = () => {
   //   const _url = "https://todoo.5xcamp.us/users/sign_out";
@@ -84,8 +90,9 @@ function TodoList() {
               return (
                 <li key={i} className="w-100 ">
                   <a
-                    href="#"
+                    href="/"
                     className={todoState === item.todoState ? "active" : ""}
+                    onClick={(e) => changeState(e, item)}
                   >
                     {item.content}
                   </a>
@@ -103,7 +110,7 @@ function TodoList() {
               <span>煮飯</span>
             </div>
             <Link to="/">
-              <i className="bi bi-x-lg"></i>
+              <i className="bi bi-trash text-muted"></i>
             </Link>
           </li>
         </ul>
