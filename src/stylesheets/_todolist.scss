@@ -1,21 +1,11 @@
-form {
-  input {
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-bottom-style: groove;
-    [type="checkbox"] {
-      cursor: pointer;
-      position: relative;
-      width: 15px;
-      height: 15px;
-      font-size: 14px;
-    }
-  }
+.list-tab .active {
+  color: #6559cc;
+  font-weight: 600;
+  border-bottom: 2px solid #6559cc;
+}
 
-  .no-outline:focus {
-    outline: none;
-  }
+.no-outline:focus {
+  outline: none;
 }
 .list-footer a span {
   color: hsl(235, 19%, 35%);
@@ -61,7 +51,7 @@ input[type="checkbox"]::after {
 input[type="checkbox"]:checked::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
   font-size: 12px;
-  background-color: hsl(236, 9%, 61%);
+  background-color: #6559cc;
   border-color: transparent;
   font-weight: bold;
 }

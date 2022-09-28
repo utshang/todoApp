@@ -48,10 +48,11 @@ function TodoList() {
       <div className="d-flex justify-content-between align-items-end text-white">
         <h1 className="fw-bold fs-1">TODO</h1>
         <div>
-          <Link to="/" className="d-flex justify-content-end mb-2">
-            Log out
-          </Link>
-          <a href="/" onClick={logout}>
+          <a
+            href="/"
+            className="mb-2 d-flex justify-content-end"
+            onClick={logout}
+          >
             登出
           </a>
           <p>
@@ -60,7 +61,27 @@ function TodoList() {
         </div>
       </div>
       <AddBtn />
-      <div className="bg-white rounded shadow">
+      <div className="bg-white rounded shadow ">
+        <div>
+          <ul className="d-flex justify-content-between pt-2 mb-2 list-tab">
+            <li className="w-100 ">
+              <Link to="/" className="d-block text-center py-3 active">
+                All
+              </Link>
+            </li>
+            <li className="w-100">
+              <Link to="/" className="d-block text-center py-3">
+                <span>Active</span>
+              </Link>
+            </li>
+            <li className="w-100">
+              <Link to="/" className="d-block text-center py-3">
+                <span>Completed</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+
         <ul>
           <li className="border-1 border-bottom p-4 d-flex justify-content-between">
             <div className="d-flex align-items-start">
@@ -73,21 +94,10 @@ function TodoList() {
             </Link>
           </li>
         </ul>
-        <div className="p-4 d-flex justify-content-between align-items-end list-footer">
-          <span className="fs-7 text-muted">
+        <div className="p-4 d-flex justify-content-between align-items-end list-footer fs-7 text-muted">
+          <span>
             <span>5</span> items left
           </span>
-          <div>
-            <Link to="/">
-              <span>All</span>
-            </Link>
-            <Link to="/" className="mx-1 mx-md-3">
-              <span>Active</span>
-            </Link>
-            <Link to="/">
-              <span>Completed</span>
-            </Link>
-          </div>
           <Link to="/">
             <span>Clear Completed</span>
           </Link>

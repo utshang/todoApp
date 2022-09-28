@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import "../src/stylesheets/all.scss";
 import Layout from "./components/Layout";
 import TodoList from "./components/TodoList";
