@@ -143,11 +143,8 @@ function TodoList() {
     <>
       <div className="d-flex justify-content-between align-items-end text-white">
         <h1 className="fw-bold fs-1">TODO</h1>
-        <div>
-          <button
-            className=" btn mb-2 p-0 ms-2 d-flex justify-content-end text-white"
-            onClick={logout}
-          >
+        <div className="d-flex flex-column align-items-end">
+          <button className=" btn mb-2 p-0 text-white" onClick={logout}>
             Log out
           </button>
           <p>
