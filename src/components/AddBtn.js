@@ -20,12 +20,14 @@ function AddBtn({ text, setText, getTodoList }) {
   //新增todo
   const addTodoItem = async (e) => {
     e.preventDefault();
-    if (text) {
-      setText("");
+    if (!text) {
+      alert("Please create a todo !");
+    } else {
       let item = { todo: { content: text } };
       await addTodo(item, token)
         .then((response) => {
           console.log(response);
+          setText("");
           getTodoList();
         })
         .catch((error) => {
@@ -40,6 +42,7 @@ function AddBtn({ text, setText, getTodoList }) {
         type="text"
         placeholder="Create a new todo..."
         className="border-0 p-4 w-100 no-outline rounded"
+        value={text}
         onChange={(e) => {
           changeColor(e);
           setText(e.target.value);
@@ -47,7 +50,9 @@ function AddBtn({ text, setText, getTodoList }) {
       />
       <button
         className="btn border border-0 d-flex align-items-center"
-        onClick={(e) => addTodoItem(e)}
+        onClick={(e) => {
+          addTodoItem(e);
+        }}
       >
         <i className="bi bi-plus fs-3 cursor-notallowed"></i>
       </button>
