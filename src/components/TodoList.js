@@ -153,68 +153,72 @@ function TodoList() {
         </div>
       </div>
       <AddBtn text={text} setText={setText} getTodoList={getTodoList} />
-      <div className="bg-white rounded shadow ">
-        <div>
-          <ul className="d-flex justify-content-between pt-2 mb-2 list-tab">
-            {stateList.map((item, i) => {
+      {data.length > 0 ? (
+        <div className="bg-white rounded shadow ">
+          <div>
+            <ul className="d-flex justify-content-between pt-2 mb-2 list-tab">
+              {stateList.map((item, i) => {
+                return (
+                  <li key={i} className="w-100 ">
+                    <a
+                      href="/"
+                      className={todoState === item.todoState ? "active" : ""}
+                      onClick={(e) => changeState(e, item)}
+                    >
+                      {item.content}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <ul>
+            {filterTodo().map((item, i) => {
               return (
-                <li key={i} className="w-100 ">
-                  <a
-                    href="/"
-                    className={todoState === item.todoState ? "active" : ""}
-                    onClick={(e) => changeState(e, item)}
-                  >
-                    {item.content}
-                  </a>
+                <li
+                  key={i}
+                  className="border-1 border-bottom p-3 d-flex justify-content-between align-items-center"
+                >
+                  <div className="d-flex align-items-start">
+                    <label htmlFor="add-btn"></label>
+                    <input
+                      type="checkbox"
+                      name="add-btn"
+                      className="me-3"
+                      checked={item.completed_at ? "checked" : ""}
+                      onChange={() => {
+                        toggleItem(item.id);
+                      }}
+                    />
+                    <span className={item.completed_at ? "completed" : ""}>
+                      {item.content}
+                    </span>
+                  </div>
+                  <button className="btn">
+                    <i
+                      className="bi bi-trash"
+                      onClick={(e) => delTodo(e, item.id)}
+                    ></i>
+                  </button>
                 </li>
               );
             })}
           </ul>
-        </div>
+          <div className="p-3 d-flex justify-content-between align-items-center list-footer fs-7">
+            <span className="items-left">
+              <span>{data.filter((item) => !item.completed_at).length} </span>
+              items left
+            </span>
 
-        <ul>
-          {filterTodo().map((item, i) => {
-            return (
-              <li
-                key={i}
-                className="border-1 border-bottom p-3 d-flex justify-content-between align-items-center"
-              >
-                <div className="d-flex align-items-start">
-                  <label htmlFor="add-btn"></label>
-                  <input
-                    type="checkbox"
-                    name="add-btn"
-                    className="me-3"
-                    checked={item.completed_at ? "checked" : ""}
-                    onChange={() => {
-                      toggleItem(item.id);
-                    }}
-                  />
-                  <span className={item.completed_at ? "completed" : ""}>
-                    {item.content}
-                  </span>
-                </div>
-                <button className="btn">
-                  <i
-                    className="bi bi-trash"
-                    onClick={(e) => delTodo(e, item.id)}
-                  ></i>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-        <div className="p-3 d-flex justify-content-between align-items-center list-footer fs-7">
-          <span className="items-left">
-            <span>{data.filter((item) => !item.completed_at).length} </span>
-            items left
-          </span>
-
-          <button className="btn" onClick={(e) => delCompleted(e)}>
-            Clear Completed
-          </button>
+            <button className="btn" onClick={(e) => delCompleted(e)}>
+              Clear Completed
+            </button>
+          </div>
         </div>
-      </div>
+      ) : (
+        ""
+      )}
     </>
   );
 }
