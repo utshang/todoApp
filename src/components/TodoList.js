@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "./Context";
 import "../stylesheets/_todolist.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AddBtn from "./AddBtn";
 import { logOut } from "../services/callAPI";
 import { getTodo } from "../services/callAPI";
@@ -78,9 +78,9 @@ function TodoList() {
     else return data;
   };
 
-  useEffect(() => {
-    filterTodo();
-  }, [data]);
+  // useEffect(() => {
+  //   filterTodo();
+  // }, [data]);
 
   //刪除 todo
   const delTodo = async (e, id) => {
@@ -144,13 +144,12 @@ function TodoList() {
       <div className="d-flex justify-content-between align-items-end text-white">
         <h1 className="fw-bold fs-1">TODO</h1>
         <div>
-          <a
-            href="#"
-            className="mb-2 d-flex justify-content-end"
+          <button
+            className=" btn mb-2 p-0 ms-2 d-flex justify-content-end text-white"
             onClick={logout}
           >
             Log out
-          </a>
+          </button>
           <p>
             <span>{user}</span>'s Todo List
           </p>
