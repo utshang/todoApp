@@ -11,7 +11,6 @@ function AddBtn({ text, setText, getTodoList }) {
     if (e.target.value) {
       plus.classList.remove("cursor-notallowed");
       plus.classList.add("plus-active");
-      console.log(e.target.value);
     } else {
       plus.classList.add("cursor-notallowed");
       plus.classList.remove("plus-active");

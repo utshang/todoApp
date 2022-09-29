@@ -71,8 +71,13 @@ export const getTodo = (token) => {
 };
 
 //刪除todo
-export const deleteTodo = (id) => {
+export const deleteTodo = (id, token) => {
   return axios({
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      authorization: token,
+    },
     method: "delete",
     url: `${deletetodo_path}/${id}`,
   });

@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AddBtn from "./AddBtn";
 import { logOut } from "../services/callAPI";
 import { getTodo } from "../services/callAPI";
+import { deleteTodo } from "../services/callAPI";
 
 function TodoList() {
   let navigate = useNavigate();
@@ -74,6 +75,23 @@ function TodoList() {
     else if (todoState === "active")
       return data.filter((item) => !item.completed_at);
     else return data;
+  };
+
+  useEffect(() => {
+    filterTodo();
+  }, [data]);
+
+  //刪除 todo
+  const delTodo = async (e, id) => {
+    e.preventDefault();
+    await deleteTodo(id, token)
+      .then((response) => {
+        console.log(response);
+        getTodoList();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   // fetch 寫法
@@ -146,7 +164,10 @@ function TodoList() {
                   <span>{item.content}</span>
                 </div>
                 <a href="#">
-                  <i className="bi bi-trash text-muted"></i>
+                  <i
+                    className="bi bi-trash text-muted"
+                    onClick={(e) => delTodo(e, item.id)}
+                  ></i>
                 </a>
               </li>
             );
