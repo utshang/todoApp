@@ -7,7 +7,7 @@ function Layout() {
       <div className="bg-img">
         <div className="container">
           <Outlet />
-          <p className="text-muted mt-3 text-center fs-7">
+          <p className="text-muted pt-3 pb-5 text-center fs-7">
             Challenge by
             <a href="https://www.frontendmentor.io/home">
               <span className="text-purple"> Frontend Mentor</span>
