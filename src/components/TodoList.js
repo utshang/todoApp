@@ -6,6 +6,7 @@ import AddBtn from "./AddBtn";
 import { logOut } from "../services/callAPI";
 import { getTodo } from "../services/callAPI";
 import { deleteTodo } from "../services/callAPI";
+import { toggleTodo } from "../services/callAPI";
 
 function TodoList() {
   let navigate = useNavigate();
@@ -94,6 +95,30 @@ function TodoList() {
       });
   };
 
+  //刪除 全部 completed 的 todo
+
+  const delCompleted = (e) => {
+    const completedTodos = data.filter((item) => {
+      return item.completed_at;
+    });
+    completedTodos.forEach((item) => {
+      delTodo(e, item.id);
+    });
+  };
+
+  //toggle todo
+
+  const toggleItem = async (id) => {
+    await toggleTodo(id, token)
+      .then((response) => {
+        console.log(response);
+        getTodoList();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   // fetch 寫法
   // const logout = () => {
   //   const _url = "https://todoo.5xcamp.us/users/sign_out";
@@ -124,7 +149,7 @@ function TodoList() {
             className="mb-2 d-flex justify-content-end"
             onClick={logout}
           >
-            登出
+            Log out
           </a>
           <p>
             <span>{user}</span>'s Todo List
@@ -152,35 +177,46 @@ function TodoList() {
         </div>
 
         <ul>
-          {data.map((item, i) => {
+          {filterTodo().map((item, i) => {
             return (
               <li
                 key={i}
-                className="border-1 border-bottom p-4 d-flex justify-content-between"
+                className="border-1 border-bottom p-3 d-flex justify-content-between align-items-center"
               >
                 <div className="d-flex align-items-start">
                   <label htmlFor="add-btn"></label>
-                  <input type="checkbox" name="add-btn" className="me-3" />
-                  <span>{item.content}</span>
+                  <input
+                    type="checkbox"
+                    name="add-btn"
+                    className="me-3"
+                    checked={item.completed_at ? "checked" : ""}
+                    onChange={() => {
+                      toggleItem(item.id);
+                    }}
+                  />
+                  <span className={item.completed_at ? "completed" : ""}>
+                    {item.content}
+                  </span>
                 </div>
-                <a href="#">
+                <button className="btn">
                   <i
-                    className="bi bi-trash text-muted"
+                    className="bi bi-trash"
                     onClick={(e) => delTodo(e, item.id)}
                   ></i>
-                </a>
+                </button>
               </li>
             );
           })}
         </ul>
-        <div className="p-4 d-flex justify-content-between align-items-end list-footer fs-7 text-muted">
-          <span>
+        <div className="p-3 d-flex justify-content-between align-items-center list-footer fs-7">
+          <span className="items-left">
             <span>{data.filter((item) => !item.completed_at).length} </span>
             items left
           </span>
-          <Link to="/">
-            <span>Clear Completed</span>
-          </Link>
+
+          <button className="btn" onClick={(e) => delCompleted(e)}>
+            Clear Completed
+          </button>
         </div>
       </div>
     </>
