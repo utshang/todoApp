@@ -44,16 +44,27 @@ export const logOut = (token) => {
 };
 
 //新增todo
-export const addTodo = () => {
+export const addTodo = (data, token) => {
   return axios({
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      authorization: token,
+    },
     method: "post",
     url: addtodo_path,
+    data: data,
   });
 };
 
 //取得todo
-export const getTodo = () => {
+export const getTodo = (token) => {
   return axios({
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      authorization: token,
+    },
     method: "get",
     url: gettodo_path,
   });
