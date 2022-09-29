@@ -18,10 +18,9 @@ function AddBtn({ text, setText, getTodoList }) {
   }
 
   //新增todo
-  const add = async (e) => {
+  const addTodoItem = async (e) => {
     e.preventDefault();
-    if (text === "") {
-    } else {
+    if (text) {
       setText("");
       let item = { todo: { content: text } };
       await addTodo(item, token)
@@ -46,13 +45,12 @@ function AddBtn({ text, setText, getTodoList }) {
           setText(e.target.value);
         }}
       />
-      <a
-        href="#"
+      <button
         className="btn border border-0 d-flex align-items-center"
-        onClick={(e) => add(e)}
+        onClick={(e) => addTodoItem(e)}
       >
         <i className="bi bi-plus fs-3 cursor-notallowed"></i>
-      </a>
+      </button>
     </form>
   );
 }
