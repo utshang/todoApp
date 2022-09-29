@@ -84,8 +84,13 @@ export const deleteTodo = (id, token) => {
 };
 
 //toggle todo
-export const toggleTodo = (id) => {
+export const toggleTodo = (id, token) => {
   return axios({
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      authorization: token,
+    },
     method: "patch",
     url: `${toggletodo_path}/${id}/toggle`,
   });
