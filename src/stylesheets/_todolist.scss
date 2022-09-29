@@ -13,12 +13,26 @@
 .no-outline:focus {
   outline: none;
 }
-.list-footer a span {
-  color: hsl(235, 19%, 35%);
-  &:hover {
-    color: #6559cc;
-    font-weight: bold;
+.list-footer {
+  .items-left {
+    color: hsl(236, 9%, 61%);
   }
+  a span {
+    color: hsl(235, 19%, 35%);
+    &:hover {
+      color: #6559cc;
+      font-weight: bold;
+    }
+  }
+}
+
+.bi-trash {
+  color: hsl(236, 9%, 61%);
+}
+
+.completed {
+  color: hsl(236, 9%, 61%);
+  text-decoration: line-through;
 }
 
 @media screen and (min-width: 1025px) {
