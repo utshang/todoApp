@@ -1,19 +1,6 @@
 import "../stylesheets/_addbtn.scss";
 
 function AddBtn() {
-  // function changeColor() {
-  //   const input = document.querySelector("input");
-  //   const plus = document.querySelector("bi-plus");
-  //   input.addEventListener("click", function (e) {
-  //     if (!e.target.value) {
-  //       plus.setAttribute("disabled", "disabled");
-  //       plus.classList.add("cursor-notallowed");
-  //     } else {
-  //       console.log(e.target.value);
-  //     }
-  //   });
-  // }
-
   function changeColor(e) {
     const plus = document.querySelector(".bi-plus");
     if (e.target.value) {
@@ -31,14 +18,14 @@ function AddBtn() {
       <input
         type="text"
         placeholder="Create a new todo..."
-        className="border-0 p-4 w-100 no-outline rounded "
+        className="border-0 p-4 w-100 no-outline rounded"
         onChange={(e) => {
           changeColor(e);
         }}
       />
-      <button className="btn border border-0 ">
+      <a href="#" className="btn border border-0 d-flex align-items-center">
         <i className="bi bi-plus fs-3 cursor-notallowed"></i>
-      </button>
+      </a>
     </form>
   );
 }

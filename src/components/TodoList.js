@@ -109,9 +109,9 @@ function TodoList() {
               <input type="checkbox" name="add-btn" className="me-3" />
               <span>煮飯</span>
             </div>
-            <Link to="/">
+            <a href="#">
               <i className="bi bi-trash text-muted"></i>
-            </Link>
+            </a>
           </li>
         </ul>
         <div className="p-4 d-flex justify-content-between align-items-end list-footer fs-7 text-muted">
