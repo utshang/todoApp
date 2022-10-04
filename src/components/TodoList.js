@@ -96,7 +96,6 @@ function TodoList() {
   };
 
   //刪除 全部 completed 的 todo
-
   const delCompleted = (e) => {
     const completedTodos = data.filter((item) => {
       return item.completed_at;
@@ -107,7 +106,6 @@ function TodoList() {
   };
 
   //toggle todo
-
   const toggleItem = async (id) => {
     await toggleTodo(id, token)
       .then((response) => {

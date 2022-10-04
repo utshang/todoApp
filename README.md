@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# Todo App
+
+[Demo](https://utshang.github.io/todoApp/)
+
+使用 React.js 開發的 Todo App
+
+## 使用技術
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
