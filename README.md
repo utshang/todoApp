@@ -6,9 +6,9 @@
 
 ## 使用技術
 
-*React.js
-*react-hook-form
-\*Bootstrap
+- React.js
+- react-hook-form
+- Bootstrap
 
 ## Getting Started with Create React App
 
