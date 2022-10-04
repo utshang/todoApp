@@ -1,10 +1,14 @@
 # Todo App
 
-[Demo](https://utshang.github.io/todoApp/)
-
 使用 React.js 開發的 Todo App
 
+[Demo](https://utshang.github.io/todoApp/)
+
 ## 使用技術
+
+*React.js
+*react-hook-form
+\*Bootstrap
 
 ## Getting Started with Create React App
 
