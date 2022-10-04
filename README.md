@@ -7,8 +7,27 @@
 ## 使用技術
 
 - React.js
+- React Router
 - react-hook-form
 - Bootstrap
+
+## Todo list
+
+- 新增 Todo
+- 刪除 Todo
+- 篩選 Todo
+- 刪除已完成的 Todo
+- All, Active, Completed 的 Tab 切換
+- 新增 input 有值時才得以按新增按鈕
+- 根據登入的使用者，取得註冊時留下的 Nickname 並顯示在畫面上
+
+## Login
+
+- 表單驗證
+
+## Sign up
+
+- 表單驗證
 
 ## Getting Started with Create React App
 
