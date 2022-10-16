@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAuth } from "./Context";
 import { signIn } from "../services/callAPI";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 function Login() {
   let navigate = useNavigate();
@@ -25,6 +27,11 @@ function Login() {
       })
       .catch((error) => {
         console.log(error.response);
+        const MySwal = withReactContent(Swal);
+        MySwal.fire({
+          icon: "error",
+          title: <p>電子信箱或密碼錯誤</p>,
+        });
       });
   };
 
