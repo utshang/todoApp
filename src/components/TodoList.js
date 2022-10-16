@@ -7,6 +7,8 @@ import { logOut } from "../services/callAPI";
 import { getTodo } from "../services/callAPI";
 import { deleteTodo } from "../services/callAPI";
 import { toggleTodo } from "../services/callAPI";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 function TodoList() {
   let navigate = useNavigate();
@@ -15,6 +17,7 @@ function TodoList() {
   const [todoState, setTodoState] = useState("all");
   const [data, setData] = useState([]);
   const [text, setText] = useState("");
+  const MySwal = withReactContent(Swal);
 
   const [stateList] = useState([
     {
@@ -60,6 +63,12 @@ function TodoList() {
       })
       .catch((error) => {
         console.log(error);
+        MySwal.fire({
+          icon: "error",
+          title: <p>Logout Failed!</p>,
+          text: "Please navigate to login page",
+        });
+        navigate("/");
       });
   };
 
@@ -85,15 +94,27 @@ function TodoList() {
 
   //刪除 todo
   const delTodo = async (e, id) => {
-    e.preventDefault();
-    await deleteTodo(id, token)
-      .then((response) => {
-        console.log(response);
-        getTodoList();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    MySwal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        MySwal.fire("Deleted!", "Your todo has been deleted.", "success");
+        deleteTodo(id, token)
+          .then((response) => {
+            console.log(response);
+            getTodoList();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    });
   };
 
   //刪除 全部 completed 的 todo
