@@ -21,7 +21,7 @@ function AddBtn({ text, setText, getTodoList }) {
   const addTodoItem = async (e) => {
     e.preventDefault();
     if (!text) {
-      alert("Please create a todo !");
+      return;
     } else {
       let item = { todo: { content: text } };
       await addTodo(item, token)
