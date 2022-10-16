@@ -9,7 +9,7 @@ import withReactContent from "sweetalert2-react-content";
 function Login() {
   let navigate = useNavigate();
   const { setToken, setUser } = useAuth();
-
+  const MySwal = withReactContent(Swal);
   const {
     register,
     handleSubmit,
@@ -27,10 +27,10 @@ function Login() {
       })
       .catch((error) => {
         console.log(error.response);
-        const MySwal = withReactContent(Swal);
         MySwal.fire({
           icon: "error",
-          title: <p>電子信箱或密碼錯誤</p>,
+          title: <p>Incorrect email or passwords!</p>,
+          text: "Please try again!",
         });
       });
   };
