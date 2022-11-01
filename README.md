@@ -10,8 +10,11 @@
 - React Router
 - react-hook-form
 - Bootstrap
+- SweetAlert2
 
 ## Todo list
+
+### 功能
 
 - 新增 Todo
 - 刪除 Todo
@@ -20,14 +23,27 @@
 - All, Active, Completed 的 Tab 切換
 - 新增 input 有值時才得以按新增按鈕
 - 根據登入的使用者，取得註冊時留下的 Nickname 並顯示在畫面上
+- SweetAlert2
+
+### 描述
 
 ## Login
 
-- 表單驗證
+### 功能
+
+- react-hook-form 表單驗證
+- SweetAlert2
+
+### 描述
 
 ## Sign up
 
-- 表單驗證
+### 功能
+
+- react-hook-form 表單驗證
+- SweetAlert2
+
+### 描述
 
 ## Getting Started with Create React App
 
