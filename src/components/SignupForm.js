@@ -2,9 +2,12 @@ import "../stylesheets/_loginsignup.scss";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { signUp } from "../services/callAPI";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 function Signup() {
   let navigate = useNavigate();
+  const MySwal = withReactContent(Swal);
   const {
     register,
     handleSubmit,
@@ -19,7 +22,14 @@ function Signup() {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error.response);
+        MySwal.fire({
+          icon: "error",
+          title: <p>Signup Failed!</p>,
+          text: "Please sign up again!",
+        });
+        document.querySelector(".email").value = "";
+        document.querySelector(".nickname").value = "";
+        document.querySelector(".password").value = "";
       });
   };
 
@@ -32,7 +42,7 @@ function Signup() {
             <label htmlFor="email">Email</label>
             <input
               type="text"
-              className="p-3 w-100 no-outline rounded border border-1 border-muted my-2"
+              className="email p-3 w-100 no-outline rounded border border-1 border-muted my-2"
               {...register("email", {
                 required: { value: true, message: "Email is required" },
                 pattern: {
@@ -47,7 +57,7 @@ function Signup() {
             <label htmlFor="name">Nickname</label>
             <input
               type="text"
-              className="p-3 w-100 no-outline rounded border border-1 border-muted my-2"
+              className="nickname p-3 w-100 no-outline rounded border border-1 border-muted my-2"
               {...register("nickname", {
                 required: { value: true, message: "Nickname is required" },
               })}
@@ -58,7 +68,7 @@ function Signup() {
             <label htmlFor="password">Password</label>
             <input
               type="text"
-              className="p-3 w-100 no-outline rounded border border-1 border-muted my-2"
+              className="password p-3 w-100 no-outline rounded border border-1 border-muted my-2"
               {...register("password", {
                 required: { value: true, message: "Password is required" },
                 minLength: {
