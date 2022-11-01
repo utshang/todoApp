@@ -1,6 +1,6 @@
+import "../stylesheets/_todolist.scss";
 import { useState, useEffect } from "react";
 import { useAuth } from "./Context";
-import "../stylesheets/_todolist.scss";
 import { useNavigate } from "react-router-dom";
 import AddBtn from "./AddBtn";
 import { logOut } from "../services/callAPI";
@@ -174,7 +174,7 @@ function TodoList() {
       </div>
       <AddBtn text={text} setText={setText} getTodoList={getTodoList} />
       {data.length > 0 ? (
-        <div className="bg-white rounded shadow ">
+        <div className="bg-white rounded shadow">
           <div>
             <ul className="d-flex justify-content-between pt-2 mb-2 list-tab">
               {stateList.map((item, i) => {
@@ -237,7 +237,9 @@ function TodoList() {
           </div>
         </div>
       ) : (
-        ""
+        <div className="bg-white rounded shadow p-4">
+          <p className="text-black text-center">There is no todo at all !</p>
+        </div>
       )}
     </>
   );
