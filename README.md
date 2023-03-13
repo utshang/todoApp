@@ -25,7 +25,7 @@
 - 根據登入的使用者，取得註冊時留下的 Nickname 並顯示在畫面上
 - SweetAlert2
 
-[image](https://i.imgur.com/VYg9WOd.png)
+![image](https://i.imgur.com/VYg9WOd.png)
 
 ### 描述
 
@@ -36,7 +36,7 @@
 - react-hook-form 表單驗證
 - SweetAlert2
 
-[image](https://i.imgur.com/s978A13.png)
+![image](https://i.imgur.com/s978A13.png)
 
 ### 描述
 
@@ -47,7 +47,7 @@
 - react-hook-form 表單驗證
 - SweetAlert2
 
-[image](https://i.imgur.com/AFsUfmB.png)
+![image](https://i.imgur.com/AFsUfmB.png)
 
 ## Getting Started with Create React App
 
