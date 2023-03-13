@@ -27,9 +27,7 @@
 
 ![image](https://i.imgur.com/VYg9WOd.png)
 
-### 描述
-
-## Login
+## Login 登入
 
 ### 功能
 
@@ -38,9 +36,7 @@
 
 ![image](https://i.imgur.com/s978A13.png)
 
-### 描述
-
-## Sign up
+## Sign up 註冊
 
 ### 功能
 
