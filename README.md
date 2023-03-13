@@ -1,6 +1,7 @@
 # Todo App
 
 使用 React.js 開發的 Todo App
+設計稿來源：[Frontend Mentor](https://www.frontendmentor.io/home)
 
 [Demo](https://utshang.github.io/todoApp/)
 
