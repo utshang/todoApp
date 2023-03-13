@@ -14,7 +14,7 @@ function Layout() {
             </a>
             . Coded by
             <a href="https://github.com/utshang?tab=repositories">
-              <span className="text-purple"> Ashley</span>
+              <span className="text-purple"> Ashley Shang</span>
             </a>
             .
           </p>
